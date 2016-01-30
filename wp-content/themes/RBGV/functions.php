@@ -23,7 +23,7 @@
 	{
 		wp_register_style('normalize', PW_THEME_URL. 'assets/css/normalize.css',null, null, 'all');
 		wp_register_style('webflow', PW_THEME_URL. 'assets/css/webflow.css',null, null, 'all');
-		wp_register_style('rbgv-advogados', PW_THEME_URL. 'assets/css/rbgv-advogados.webflow.css',null, null, 'all');
+		wp_register_style('rbgv-advogados', PW_THEME_URL. 'assets/css/rbgv-advogados.webflow.css',null, true, 'all');
 		wp_register_style('header', PW_THEME_URL. 'assets/css/header.css',null, null, 'all');
 
 		wp_enqueue_script( 'google_jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js',null, null, false );

@@ -927,7 +927,7 @@
 }
 
 .navmenu {
-  width: 657px;
+  width: auto;
   line-height: 40px;
   text-align: left;
 }
@@ -1011,7 +1011,7 @@
 
 .logo-scroll {
   height: 90px;
-  padding: 20px 27px;
+  padding: 20px 25px;
 }
 
 .navmenu-scroll {
