@@ -57,44 +57,22 @@
 						<div class="w-icon-nav-menu icon-hamburger"></div>
 						<div>menu</div>
 					</div>
-					<nav role="navigation" data-ix="click-menu-icon" class="w-nav-menu navmenu-scroll">
-						<a href="#" class="w-nav-link navlink-scroll">o escritório</a>
-						<div data-delay="200" data-hover="1" class="w-dropdown">
-							<div class="w-dropdown-toggle navlink-scroll">
-								<div>atuação</div>
-							</div>
-							<nav class="w-dropdown-list">
-								<a href="#" class="w-dropdown-link link-navdropdown">Direito Administrativo</a>
-								<a href="#" class="w-dropdown-link link-navdropdown">Direito Ambiental</a><a href="#" class="w-dropdown-link link-navdropdown">Direito Constitucional</a>
-								<a href="#" class="w-dropdown-link link-navdropdown">Direito de Infraestrutura</a>
-								<a href="#" class="w-dropdown-link link-navdropdown">Direito Urbanístico</a>
-								<a href="#" class="w-dropdown-link link-navdropdown">Direito Tributário</a>
-							</nav>
-						</div>
-						<a href="#" class="w-nav-link navlink-scroll">profissionais</a>
-						<div data-delay="200" data-hover="1" class="w-dropdown">
-							<div class="w-dropdown-toggle navlink-scroll">
-								<div>notícias</div>
-							</div>
-							<nav class="w-dropdown-list">
-								<a href="#" class="w-dropdown-link link-navdropdown">Boletins</a>
-								<a href="#" class="w-dropdown-link link-navdropdown">Artigos</a>
-								<a href="#" class="w-dropdown-link link-navdropdown">Informativos</a>
-								<a href="#" class="w-dropdown-link link-navdropdown">Blog RBGV</a>
-								<a href="#" class="w-dropdown-link link-navdropdown">Newsletter</a>
-							</nav>
-						</div>
-						<div data-delay="200" data-hover="1" class="w-dropdown">
-							<div class="w-dropdown-toggle navlink-scroll">
-								<div>fale conosco</div>
-							</div>
-							<nav class="w-dropdown-list">
-								<a href="#" class="w-dropdown-link link-navdropdown">Contato</a>
-								<a href="#" class="w-dropdown-link link-navdropdown">Programas e Carreiras</a>
-								<a href="#" class="w-dropdown-link link-navdropdown">Política de Agendamento</a>
-							</nav>
-						</div>
-					</nav>
+					<?php
+
+						$args = array(
+							'nav' =>
+								array(
+									'class' => "w-nav-menu navmenu-scroll" ,
+									'data-ix' => "click-menu-icon",
+								),	
+							'div' =>
+								array('class' => "w-dropdown-toggle navlink-scroll"),
+							'a' => 
+								array('class' => "w-nav-link navlink-scroll")
+						 );
+
+						 my_nav_menu_items('menu-header', $args); 
+					?>
 				</div>
 			</div>
 		</div>
@@ -109,44 +87,21 @@
 						PW_SITE_NAME,
 						PW_THEME_URL
 					);
-				?>	
-				<nav role="navigation" class="w-nav-menu navmenu">
-					<a href="#" class="w-nav-link navlink">o escritório</a>
-					<div data-delay="200" data-hover="1" class="w-dropdown">
-						<div class="w-dropdown-toggle navlink">
-							<div>atuação</div>
-						</div>
-						<nav class="w-dropdown-list">
-							<a href="#" class="w-dropdown-link link-navdropdown">Direito Administrativo</a>
-							<a href="#" class="w-dropdown-link link-navdropdown">Direito Ambiental</a>
-							<a href="#" class="w-dropdown-link link-navdropdown">Direito Constitucional</a>
-							<a href="#" class="w-dropdown-link link-navdropdown">Direito de Infraestrutura</a>
-							<a href="#" class="w-dropdown-link link-navdropdown">Direito Urbanístico</a>
-							<a href="#" class="w-dropdown-link link-navdropdown">Direito Tributário</a>
-						</nav>
-					</div>
-					<a href="profissionais.html" class="w-nav-link navlink">profissionais</a>
-					<div data-delay="200" data-hover="1" class="w-dropdown">
-						<div class="w-dropdown-toggle navlink">
-							<div>notícias</div>
-						</div>
-						<nav class="w-dropdown-list">
-							<a href="#" class="w-dropdown-link link-navdropdown">Boletins</a>
-							<a href="#" class="w-dropdown-link link-navdropdown">Artigos</a>
-							<a href="#" class="w-dropdown-link link-navdropdown">Informativos</a>
-							<a href="noticias.html" class="w-dropdown-link link-navdropdown">Blog RBGV</a><a href="#" data-ix="subscribe-interaction" class="w-dropdown-link link-navdropdown">Newsletter</a>
-						</nav>
-					</div>
-					<div data-delay="200" data-hover="1" class="w-dropdown">
-						<div class="w-dropdown-toggle navlink">
-							<div>fale conosco</div>
-						</div>
-						<nav class="w-dropdown-list">
-							<a href="contato.html" class="w-dropdown-link link-navdropdown">Contato</a>
-							<a href="#" class="w-dropdown-link link-navdropdown">Programas e Carreiras</a><a href="#" class="w-dropdown-link link-navdropdown">Política de Agendamento</a>
-						</nav>
-					</div>
-				</nav>
+				
+					$args = array(
+								'nav' =>
+									array(
+										'class' => "w-nav-menu navmenu" ,
+										'data-ix' => "",
+									),	
+								'div' =>
+									array('class' => "w-dropdown-toggle navlink"),
+								'a' => 
+									array('class' => "w-nav-link navlink")
+							 );
+
+							 my_nav_menu_items('menu-header', $args); 
+					?>	 
 				<div class="w-nav-button navlink menubutton">
 					<div class="w-icon-nav-menu icon-hamburger"></div>
 					<div>menu</div>
