@@ -6,15 +6,47 @@
       <h2 class="subtitulo-sessao">Prestação de serviços acerca do Direito nas seguintes áreas</h2>
     </div>
     <div class="w-clearfix destaques">
+
+    <?php
+     /**
+      * Objeto query do wordpress que realiza uma consulta
+      * da página pelo slug.  
+      * @param slug da página
+      * @return WP_Query Object
+      */  
+    ?>
+    <?php $objPage = new WP_Query( 'pagename=administrativo' ); ?>
+    <?php if( $objPage->have_posts() ) : $objPage->the_post(); endif; ?>  
+    <?php
+      // O ID da imagem destacada
+      $thumb_id = get_post_thumbnail_id();
+
+      // A URL da imagem
+      if ( $thumb_id ){
+        $thumb_url = wp_get_attachment_image_src( $thumb_id, 'medium' );
+      }
+    ?>  
       <div data-ix="hover-destaque" class="destaque faixa-cinza">
-        <img src="<?php echo PW_THEME_URL ?>assets/images/thumb-adm.jpg" class="thumb-destaque">
+        <img src="<?php echo  $thumb_url[0]; ?>" class="thumb-destaque">
         <img src="<?php echo PW_THEME_URL ?>assets/images/icon-adm.svg" class="icon-destaque">
         <div class="text-block">
-          <h3 class="titulo-destaque">Administrativo</h3>
-          <p class="paragrafo resumo-detalhe">Este espaço é destinado para inserção de conteúdos, imagens, vídeos, links, banners, notícias, ícones, produtos, publicidade e muito mais. Aproveite esta oportunidade para destacar os pontos fortes de sua empresa. &nbsp;<a class="link leia-mais" id="link" href="#">Leia mais</a>
+          <h3 class="titulo-destaque"><?php the_title(); ?></h3>
+          <p class="paragrafo resumo-detalhe">
+            <?php the_excerpt(); ?>
           </p>
+          <?php the_content('<span class="read-more">Continue lendo…</span>') ?>
         </div>
       </div>
+
+
+
+
+
+
+
+
+
+     
       <div data-ix="hover-destaque" class="destaque faixa-verde">
         <img src="<?php echo PW_THEME_URL ?>assets/images/thumb-amb.jpg" class="thumb-destaque">
         <img src="<?php echo PW_THEME_URL ?>assets/images/icon-amb.svg" class="icon-destaque">

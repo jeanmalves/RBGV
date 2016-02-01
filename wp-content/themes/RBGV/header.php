@@ -109,16 +109,4 @@
 			</div>
 		</div>
 		<?php putRevSlider("home") ?>
-		<!--<div class="w-container banner">
-			<div class="titulo branco">
-				<h1 class="titulo-sessao branco">Bem vindo à RBGV</h1>
-				<div class="subtitulo-sessao branco">Escritório &nbsp;de advocacia e consultoria jurídica
-					<br>Atuação preventiva e contenciosa na área de direito público
-				</div>
-			</div>
-			<a href="#" class="w-button btn-transparente">Clique e conheça</a>
-		</div>
-		<div class="img-banner">
-			<img src="<?php //echo PW_THEME_URL ?>assets/images/img-banner.jpg">
-		</div>-->
 	</div>
