@@ -119,3 +119,33 @@
 	    }
 	    echo $menu_list;
 	}
+
+
+	/*add_filter('excerpt_length', 'custom_excerpt_length');
+	function custom_excerpt_length($length) {
+		return 1200; //Nova quantidade de caracteres do excerpt
+	}*/
+
+	function the_excerpt_max_charlength($charlength) {
+		$excerpt = get_the_excerpt();
+		$charlength++;
+
+		if ( mb_strlen( $excerpt ) > $charlength ) {
+			$subex = mb_substr( $excerpt, 0, $charlength - 5 );
+			$exwords = explode( ' ', $subex );
+			$excut = - ( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
+			if ( $excut < 0 ) {
+				echo mb_substr( $subex, 0, $excut );
+			} else {
+				echo $subex;
+			}
+			echo '[...]';
+		} else {
+			echo $excerpt;
+		}
+	}
+
+	function new_excerpt_more( $more ) {
+		return ' <a class="link leia-mais" id="link" href="'. get_permalink( get_the_ID() ) . '">' . __($more,'leia_mais' ) . '</a>';
+	}
+	add_filter( 'excerpt_more', 'new_excerpt_more' );

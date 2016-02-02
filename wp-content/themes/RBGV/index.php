@@ -15,99 +15,92 @@
       * @return WP_Query Object
       */  
     ?>
-    <?php $objPage = new WP_Query( 'pagename=administrativo' ); ?>
-    <?php if( $objPage->have_posts() ) : $objPage->the_post(); endif; ?>  
+    <?php 
+      $args = array(
+        'post_type' => 'page',
+        'post_name__in' => array(
+          'direito-administrativo',
+          'direito-ambiental',
+          'direito-constitucional',
+          'direito-de-infraestrutura',
+          'direito-urbanistico',
+          'direito-tributario'
+        ),
+        'orderby' => 'ID',
+        'order' => 'ASC',
+      );
+
+      $objPage = new WP_Query( $args ); ?>
+    <?php if( $objPage->have_posts() ) : ?>
+
+      <?php while ( $objPage->have_posts() ) : $objPage->the_post(); ?>
+
+              <?php
+                // O ID da imagem destacada
+                $thumb_id = get_post_thumbnail_id();
+
+                // A URL da imagem
+                if ( $thumb_id ){
+                  $thumb_url = wp_get_attachment_image_src( $thumb_id, 'medium' );
+                }
+              ?>  
+              <div data-ix="hover-destaque" class="destaque faixa-cinza">
+                <img src="<?php echo  $thumb_url[0]; ?>" class="thumb-destaque">
+                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-adm.svg" class="icon-destaque">
+                <div class="text-block">
+                  <h3 class="titulo-destaque">
+                    <?php 
+                      if ($objPage->post->post_name == "direito-de-infraestrutura") {
+                        $titulo = substr(get_the_title(),11);
+                      }else{
+                        $titulo = substr(get_the_title(),8); 
+                      }
+                      echo $titulo;
+                    ?>
+                  </h3>
+                  <p class="paragrafo resumo-detalhe">
+                    <?php the_excerpt_max_charlength(240); ?>
+                    <?php echo new_excerpt_more( "Leia mais" ) ?>
+                  </p>
+                </div>
+              </div>
+      <?php endwhile; ?>      
+      <?php wp_reset_postdata(); ?>  
+    <?php endif; ?>
+    </div>
+  </div>
+</div>
+<div class="w-section content-section">
+  <div class="w-container quem-somos">
+    <?php
+     /**
+      * Objeto query do wordpress que realiza uma consulta
+      * da página pelo slug.  
+      * @param slug da página
+      * @return WP_Query Object
+      */  
+    ?>
+    <?php $objPage = new WP_Query( 'pagename=quem-somos' ); ?>
+    <?php if( $objPage->have_posts() ) : $objPage->the_post(); endif; ?>
+    <div data-ix="scroll-reveal-part-1" class="titulo">
+      <h1 class="titulo-sessao"><?php the_title(); ?></h1>
+      <h2 class="subtitulo-sessao">
+        <?php echo get_post_meta($post->ID, 'subtitulo', true); ?>
+      </h2>
+    </div>
     <?php
       // O ID da imagem destacada
       $thumb_id = get_post_thumbnail_id();
 
       // A URL da imagem
       if ( $thumb_id ){
-        $thumb_url = wp_get_attachment_image_src( $thumb_id, 'medium' );
+        $thumb_url = wp_get_attachment_image_src( $thumb_id, 'full' );
       }
-    ?>  
-      <div data-ix="hover-destaque" class="destaque faixa-cinza">
-        <img src="<?php echo  $thumb_url[0]; ?>" class="thumb-destaque">
-        <img src="<?php echo PW_THEME_URL ?>assets/images/icon-adm.svg" class="icon-destaque">
-        <div class="text-block">
-          <h3 class="titulo-destaque"><?php the_title(); ?></h3>
-          <p class="paragrafo resumo-detalhe">
-            <?php the_excerpt(); ?>
-          </p>
-          <?php the_content('<span class="read-more">Continue lendo…</span>') ?>
-        </div>
-      </div>
-
-
-
-
-
-
-
-
-
-     
-      <div data-ix="hover-destaque" class="destaque faixa-verde">
-        <img src="<?php echo PW_THEME_URL ?>assets/images/thumb-amb.jpg" class="thumb-destaque">
-        <img src="<?php echo PW_THEME_URL ?>assets/images/icon-amb.svg" class="icon-destaque">
-        <div class="text-block">
-          <h3 class="titulo-destaque">Ambiental</h3>
-          <p class="paragrafo resumo-detalhe">Este espaço é destinado para inserção de conteúdos, imagens, vídeos, links, banners, notícias, ícones, produtos, publicidade e muito mais. Aproveite esta oportunidade para destacar os pontos fortes de sua empresa. &nbsp;<a class="link leia-mais" id="link" href="#">Leia mais</a>
-          </p>
-        </div>
-      </div>
-      <div data-ix="hover-destaque" class="destaque faixa-verde2">
-        <img src="<?php echo PW_THEME_URL ?>assets/images/thumb-const.jpg" class="thumb-destaque">
-        <img src="<?php echo PW_THEME_URL ?>assets/images/icon-const.svg" class="icon-destaque">
-        <div class="text-block">
-          <h3 class="titulo-destaque">Constitucional</h3>
-          <p class="paragrafo resumo-detalhe">Este espaço é destinado para inserção de conteúdos, imagens, vídeos, links, banners, notícias, ícones, produtos, publicidade e muito mais. Aproveite esta oportunidade para destacar os pontos fortes de sua empresa. &nbsp;<a class="link leia-mais" id="link" href="#">Leia mais</a>
-          </p>
-        </div>
-      </div>
-      <div data-ix="hover-destaque" class="destaque faixa-verde3">
-        <img src="<?php echo PW_THEME_URL ?>assets/images/thumb-infra.jpg" class="thumb-destaque">
-        <img src="<?php echo PW_THEME_URL ?>assets/images/icon-infra.svg" class="icon-destaque">
-        <div class="text-block">
-          <h3 class="titulo-destaque">Infraestrutura</h3>
-          <p class="paragrafo resumo-detalhe">Este espaço é destinado para inserção de conteúdos, imagens, vídeos, links, banners, notícias, ícones, produtos, publicidade e muito mais. Aproveite esta oportunidade para destacar os pontos fortes de sua empresa. &nbsp;<a class="link leia-mais" id="link" href="#">Leia mais</a>
-          </p>
-        </div>
-      </div>
-      <div data-ix="hover-destaque" class="destaque faixa-cinza2">
-        <img src="<?php echo PW_THEME_URL ?>assets/images/thumb-urb.jpg" class="thumb-destaque">
-        <img src="<?php echo PW_THEME_URL ?>assets/images/icon-urb.svg" class="icon-destaque">
-        <div class="text-block">
-          <h3 class="titulo-destaque">Urbanistíco</h3>
-          <p class="paragrafo resumo-detalhe">Este espaço é destinado para inserção de conteúdos, imagens, vídeos, links, banners, notícias, ícones, produtos, publicidade e muito mais. Aproveite esta oportunidade para destacar os pontos fortes de sua empresa. &nbsp;<a class="link leia-mais" id="link" href="#">Leia mais</a>
-          </p>
-        </div>
-      </div>
-      <div data-ix="hover-destaque" class="destaque faixa-cinza">
-        <img src="<?php echo PW_THEME_URL ?>assets/images/thumb-trib.jpg" class="thumb-destaque">
-        <img src="<?php echo PW_THEME_URL ?>assets/images/icon-trib.svg" class="icon-destaque">
-        <div class="text-block">
-          <h3 class="titulo-destaque">Tributário</h3>
-          <p class="paragrafo resumo-detalhe">Este espaço é destinado para inserção de conteúdos, imagens, vídeos, links, banners, notícias, ícones, produtos, publicidade e muito mais. Aproveite esta oportunidade para destacar os pontos fortes de sua empresa. &nbsp;<a class="link leia-mais" id="link" href="#">Leia mais</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="w-section content-section">
-  <div class="w-container quem-somos">
-    <div data-ix="scroll-reveal-part-1" class="titulo">
-      <h1 class="titulo-sessao">Quem somos</h1>
-      <h2 class="subtitulo-sessao">Uma breve apresentação da RBGV Advogados</h2>
-    </div>
-    <img src="<?php echo PW_THEME_URL ?>assets/images/img-quemsomos.png" data-ix="scroll-reveal-part2" class="montagem-rbgv">
+    ?>
+    <img src="<?php echo  $thumb_url[0]; ?>" data-ix="scroll-reveal-part2" class="montagem-rbgv">
     <div data-ix="scroll-reveal-part-3" class="w-clearfix paragrafo resumo-empresa">
-      <p>Este espaço é destinado para inserção de conteúdos, imagens, vídeos, links, banners, notícias, ícones, produtos, publicidade e muito mais. Aproveite esta oportunidade para destacar os pontos fortes com a infinidade de recursos que a ferramenta Wordpress proporciona para sua empresa. Este espaço é destinado para inserção de conteúdos, imagens, vídeos, links, banners, notícias, ícones, produtos, etc.
-        <br>
-        <br>Aproveite esta oportunidade para destacar os pontos fortes com a infinidade de recursos que a ferramenta Wordpress proporciona para sua empresa.
-        <br>
-        <br>Este espaço é destinado para inserção de conteúdos, imagens, vídeos, links, banners, notícias, ícones, produtos, etc. Aproveite esta oportunidade para destacar os pontos fortes com a infinidade de recursos que a ferramenta Wordpress proporciona.</p><a href="#" class="w-button btn-branco">Saiba mais</a>
+      <p><?php the_excerpt_max_charlength(865); ?></p>
+        <a href="<?php echo get_permalink(); ?>" class="w-button btn-branco">Saiba mais</a>
       </div>
     </div>
   </div>
