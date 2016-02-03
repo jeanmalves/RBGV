@@ -1,5 +1,13 @@
 <?php
 	
+	/**
+	 * Definição de constantes WP.
+	*/
+	define( 'PW_URL', get_home_url() );
+	define( 'PW_THEME_URL', get_bloginfo( 'template_url' ) . '/' );
+	define( 'PW_SITE_NAME', get_bloginfo( 'name' ) );
+
+
 	add_action('after_setup_theme', 'custom_setup' );
 
 	function custom_setup()
@@ -8,7 +16,8 @@
 		
 		register_nav_menus( array(
 			'menu-header' => 'Menu Header',
-			'menu-footer' => 'Menu Rodapé',
+			'menu-footer-left' => 'Menu Esquerdo Rodapé',
+			'menu-footer-right' => 'Menu Direito Rodapé',
 		) );
 
 	}
@@ -49,17 +58,8 @@
 
 	}
 
-
 	/**
-	 * Definição de constantes WP.
-	*/
-	define( 'PW_URL', get_home_url() );
-	define( 'PW_THEME_URL', get_bloginfo( 'template_url' ) . '/' );
-	define( 'PW_SITE_NAME', get_bloginfo( 'name' ) );
-
-
-	/**
-	 * Função para exibir o menu topo do site.
+	 * Função para exibir os menus do site.
 	*/
 
 	add_filter( 'wp_nav_menu_items', 'my_nav_menu_items', 10, 2 );
@@ -67,52 +67,84 @@
 	function my_nav_menu_items( $theme_location, $args = array() ) {
 
 		if ( ($theme_location) && ($locations = get_nav_menu_locations()) && isset($locations[$theme_location]) ) {
+	        
 	        $menu = get_term( $locations[$theme_location], 'nav_menu' );
-	        $menu_items = wp_get_nav_menu_items($menu->term_id);
+	       	$menu_items = wp_get_nav_menu_items($menu->term_id);
 	 
-	        $menu_list  = '<nav role="navigation"  data-ix="'.$args['nav']['data-ix'].'" class="'.$args['nav']['class'].'">'."\n";
+			if($theme_location == "menu-header"){
+	        	$menu_list  = '<nav role="navigation"  data-ix="'.$args['nav']['data-ix'].'" class="'.$args['nav']['class'].'">'."\n";
 	 
-	        $count = 0;
-	        $submenu = false;
+	        	$count = 0;
+	        	$submenu = false;
 
-	        foreach( $menu_items as $menu_item ) {
-	         
-	            $link = $menu_item->url;
-	            $title = $menu_item->title;
+		        foreach( $menu_items as $menu_item ) {
+		         
+		            $link = $menu_item->url;
+		            $title = $menu_item->title;
 
-	            if ( !$menu_item->menu_item_parent ) {
+		            if ( !$menu_item->menu_item_parent ) {
 
-	                $parent_id = $menu_item->ID;
-	                $prox = next($menu_items);
-	                if( $menu_items[ $count + 1 ]->menu_item_parent == $parent_id ){
-	                	$menu_list .= '<div data-delay="200" data-hover="1" class="w-dropdown">' ."\n";
-	                    $menu_list .= ' <div class="'.$args['div']['class'].'">'."\n";
-	                    $menu_list .= '	 <div>'.$title.'</div>'."\n";
-	                    $menu_list .= ' </div>'."\n";
-	                }else{
+		                $parent_id = $menu_item->ID;
+		                $prox = next($menu_items);
+		                if( $menu_items[ $count + 1 ]->menu_item_parent == $parent_id ){
+		                	$menu_list .= '<div data-delay="200" data-hover="1" class="w-dropdown">' ."\n";
+		                    $menu_list .= ' <div class="'.$args['div']['class'].'">'."\n";
+		                    $menu_list .= '	 <div>'.$title.'</div>'."\n";
+		                    $menu_list .= ' </div>'."\n";
+		                }else{
 
-	                	$menu_list .= '<a href="'.$link.'" class="'.$args['a']['class'].'">'.$title.'</a>' ."\n";	
-	                }  
-	            }
-	 
-	            if ( $parent_id == $menu_item->menu_item_parent ) {
-	 
-	                if ( !$submenu ) {
-	                    $submenu = true;
-	                    $menu_list .= ' <nav class="w-dropdown-list">';
-	                }
-	 
-	                $menu_list .= '<a href="'.$link.'" class="w-dropdown-link link-navdropdown">'.$title.'</a>' ."\n";
-	 
-	                if ( $menu_items[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ){
-	                    $menu_list .= ' </nav>'."\n";
-	                    $menu_list .= ' </div>'."\n";
-	                    $submenu = false;
-	                }
-	            }
-	            $count++;
-	        }
-	        $menu_list .= '</nav>' ."\n";
+		                	$menu_list .= '<a href="'.$link.'" class="'.$args['a']['class'].'">'.$title.'</a>' ."\n";	
+		                }  
+		            }
+		 
+		            if ( $parent_id == $menu_item->menu_item_parent ) {
+		 
+		                if ( !$submenu ) {
+		                    $submenu = true;
+		                    $menu_list .= ' <nav class="w-dropdown-list">';
+		                }
+		 
+		                $menu_list .= '<a href="'.$link.'" class="w-dropdown-link link-navdropdown">'.$title.'</a>' ."\n";
+		 
+		                if ( $menu_items[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ){
+		                    $menu_list .= ' </nav>'."\n";
+		                    $menu_list .= ' </div>'."\n";
+		                    $submenu = false;
+		                }
+		            }
+		            $count++;
+		        }
+	        	$menu_list .= '</nav>' ."\n";
+	        }	
+	        else{
+
+	        	$menu_list  = '<ul class="w-list-unstyled menu-footer">'."\n";
+
+	        	foreach( $menu_items as $menu_item ) {
+
+	        		$link = $menu_item->url;
+		            $title = $menu_item->title;
+		             
+		            if (array_key_exists("type", $args)) {
+
+		            	if($args['type'] == "area-atuacao"){
+			                if ($title == "Direito de Infraestrutura") {
+			                    $title = substr($title,11);
+			                }else{
+			                    $title = substr($title,8); 
+			                }
+			            }
+			        }
+
+	        		$menu_list  .= '<li>'."\n";
+			        $menu_list  .= '   <div class="txt-footer">'."\n";
+			        $menu_list  .= '     <a class="link branco" href="'. $link .'">'. $title .'</a>'."\n";
+			        $menu_list  .= '    </div>'."\n";
+			        $menu_list  .= '</li>';
+	        	}
+
+	        	$menu_list .= '</ul>' ."\n";
+	        }	
 	 
 	    } else {
 	        $menu_list = '<!-- no menu defined in location "'.$theme_location.'" -->';

@@ -41,65 +41,20 @@
         <div class="w-embed hr">
           <hr class="hr">
         </div>
-        <ul class="w-list-unstyled menu-footer">
-          <li>
-            <div class="txt-footer">
-              <a class="link branco" href="#">Administrativo</a>
-            </div>
-          </li>
-          <li>
-            <div class="txt-footer">
-              <a class="link branco" href="#">Ambiental<br></a>
-            </div>
-          </li>
-          <li>
-            <div class="txt-footer">Constitucional</div>
-          </li>
-          <li>
-            <div class="txt-footer">
-              <a class="link branco" href="#">Infraestrutura</a>
-            </div>
-          </li>
-          <li>
-            <div class="txt-footer">
-              <a class="link branco" href="#">Urbanístico</a>
-            </div>
-          </li>
-          <li>
-            <div class="txt-footer">
-              <a class="link branco" href="#">Tributário</a>
-            </div>
-          </li>
-        </ul>
+        <?php my_nav_menu_items('menu-footer-left', array('type'=>'area-atuacao')); ?>
       </div>
       <div class="coluna-footer direitas">
         <h4 class="titulo-footer">Fale conosco</h4>
         <div class="w-embed hr">
           <hr class="hr">
         </div>
-        <ul class="w-list-unstyled menu-footer">
-          <li>
-            <div class="txt-footer">
-              <a class="link branco" href="#">Contato</a>
-            </div>
-          </li>
-          <li>
-            <div class="txt-footer">
-              <a class="link branco" href="#">Programas e Carreiras<br></a>
-            </div>
-          </li>
-          <li>
-            <div class="txt-footer">
-              <a class="link branco" href="#">Política de Agendamento<br></a>
-            </div>
-            <div class="w-clearfix box-horario">
-              <img src="<?php echo PW_THEME_URL ?>assets/images/icon-hora.svg" class="icon-hora">
-              <div class="legenda-hora">
-                segunda à sexta-feira
-                <br>8h00 - 17h30</div>
-              </div>
-            </li>
-          </ul>
+        <?php my_nav_menu_items('menu-footer-right'); ?>
+        <div class="w-clearfix box-horario">
+        <img src="<?php echo PW_THEME_URL ?>assets/images/icon-hora.svg" class="icon-hora">
+        <div class="legenda-hora">
+          segunda à sexta-feira
+          <br>8h00 - 17h30</div>
+        </div>
         </div>
       </div>
     </div>
@@ -121,8 +76,6 @@
           );
 
         ?>
-
-        
       </div>
     </div>
   </div>
