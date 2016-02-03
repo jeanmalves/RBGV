@@ -28,7 +28,7 @@
     <div class="w-container">
       <div class="coluna-footer">
         <img src="<?php echo PW_THEME_URL ?>assets/images/logo_aramada.svg" class="logo-rbgv-branca">
-        <div class="txt-footer">© 2016 - Todos os direitos reservados
+        <div class="txt-footer">&copy; <?php echo date("Y"); ?> - Todos os direitos reservados.
           <br> Desenvolvido por <a class="drnaweb" target="_blank" href="http://www.drnaweb.com">Doutor na Web</a>
         </div>
         <a href="#" class="w-clearfix w-inline-block btn-transparente btn-footer">
@@ -105,7 +105,24 @@
     </div>
     <div class="final-footer">
       <div class="txt-footer endereco">
-        Al. Princesa Izabel, 1975 &nbsp; &nbsp; | &nbsp; &nbsp; CEP 80730-080 &nbsp; &nbsp; | &nbsp; &nbsp; Curitiba/PR &nbsp; &nbsp; | &nbsp; &nbsp; +55 41 30241299 &nbsp; &nbsp; | &nbsp; &nbsp;<a class="link branco" href="mailto:rbgv@rbgv.com.br"> rbgv@rbgv.com.br</a>
+        <?php
+          printf(
+            '%1$s &nbsp; &nbsp; | &nbsp; &nbsp; 
+            CEP %2$s &nbsp; &nbsp; | &nbsp; &nbsp;
+            %3$s &nbsp; &nbsp; | &nbsp; &nbsp; 
+            %4$s &nbsp; &nbsp; | &nbsp; &nbsp;
+            <a class="link branco" href="mailto:%5$s"> %5$s</a>',
+            get_option('endereco_site'),
+            get_option('cep_site'),
+            get_option('cidade_site'),
+            get_option('fone_site'),
+            get_option('email_site')
+
+          );
+
+        ?>
+
+        
       </div>
     </div>
   </div>

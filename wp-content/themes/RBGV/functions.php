@@ -149,3 +149,91 @@
 		return ' <a class="link leia-mais" id="link" href="'. get_permalink( get_the_ID() ) . '">' . __($more,'leia_mais' ) . '</a>';
 	}
 	add_filter( 'excerpt_more', 'new_excerpt_more' );
+
+
+	/**
+	 * Função para customizar o painel administrativo na sessão de configurações gerais.
+	 */
+
+
+
+	add_action('admin_init', 'my_general_section');
+
+	function my_general_section() {  
+	    add_settings_section(  
+	        'my_settings_section', // Section ID 
+	        'Informações Adicionais', // Section Title
+	        'my_section_options_callback', // Callback
+	        'general' // What Page?  This makes the section show up on the General Settings Page
+	    );
+
+	    add_settings_field( // Option 1
+	        'endereco_site', // Option ID
+	        'Endereço', // Label
+	        'my_textbox_callback', // !important - This is where the args go!
+	        'general', // Page it will be displayed (General Settings)
+	        'my_settings_section', // Name of our section
+	        array( // The $args
+	            'endereco_site' // Should match Option ID
+	        )  
+	    ); 
+
+	     add_settings_field( // Option 2
+	        'cep_site', // Option ID
+	        'CEP', // Label
+	        'my_textbox_callback', // !important - This is where the args go!
+	        'general', // Page it will be displayed
+	        'my_settings_section', // Name of our section (General Settings)
+	        array( // The $args
+	            'cep_site' // Should match Option ID
+	        )  
+	    ); 
+
+	    add_settings_field( // Option 2
+	        'cidade_site', // Option ID
+	        'Cidade', // Label
+	        'my_textbox_callback', // !important - This is where the args go!
+	        'general', // Page it will be displayed
+	        'my_settings_section', // Name of our section (General Settings)
+	        array( // The $args
+	            'cidade_site' // Should match Option ID
+	        )  
+	    ); 
+
+	    add_settings_field( // Option 2
+	        'fone_site', // Option ID
+	        'Telefone', // Label
+	        'my_textbox_callback', // !important - This is where the args go!
+	        'general', // Page it will be displayed
+	        'my_settings_section', // Name of our section (General Settings)
+	        array( // The $args
+	            'fone_site' // Should match Option ID
+	        )  
+	    ); 
+
+	    add_settings_field( // Option 2
+	        'email_site', // Option ID
+	        'Email', // Label
+	        'my_textbox_callback', // !important - This is where the args go!
+	        'general', // Page it will be displayed
+	        'my_settings_section', // Name of our section (General Settings)
+	        array( // The $args
+	            'email_site' // Should match Option ID
+	        )  
+	    ); 
+
+	    register_setting('general','endereco_site', 'esc_attr');
+	    register_setting('general','fone_site', 'esc_attr');
+	    register_setting('general','cep_site', 'esc_attr');
+	    register_setting('general','cidade_site', 'esc_attr');
+	    register_setting('general','email_site', 'esc_attr');
+	}
+
+	function my_section_options_callback() { // Section Callback
+	    echo '<p>Informações de endereço e contato do site.</p>';  
+	}
+
+	function my_textbox_callback($args) {  // Textbox Callback
+	    $option = get_option($args[0]);
+	    echo '<input type="text" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" />';
+	}
