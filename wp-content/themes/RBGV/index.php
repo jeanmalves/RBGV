@@ -6,67 +6,181 @@
       <h2 class="subtitulo-sessao">Prestação de serviços acerca do Direito nas seguintes áreas</h2>
     </div>
     <div class="w-clearfix destaques">
+      <?php
+       /**
+        * Objeto query do wordpress que realiza uma consulta
+        * da página pelo slug.  
+        * @param slug da página
+        * @return WP_Query Object
+        */  
+      ?>
+      <?php $objPage = new WP_Query( 'pagename=direito-administrativo' ); ?>
+      <?php if( $objPage->have_posts() ) : $objPage->the_post(); endif; ?>
+      <?php
+        // O ID da imagem destacada
+        $thumb_id = get_post_thumbnail_id();
 
-    <?php
-     /**
-      * Objeto query do wordpress que realiza uma consulta
-      * da página pelo slug.  
-      * @param slug da página
-      * @return WP_Query Object
-      */  
-    ?>
-    <?php 
-      $args = array(
-        'post_type' => 'page',
-        'post_name__in' => array(
-          'direito-administrativo',
-          'direito-ambiental',
-          'direito-constitucional',
-          'direito-de-infraestrutura',
-          'direito-urbanistico',
-          'direito-tributario'
-        ),
-        'orderby' => 'ID',
-        'order' => 'ASC',
-      );
+        // A URL da imagem
+        if ( $thumb_id ){
+          $thumb_url = wp_get_attachment_image_src( $thumb_id, 'medium' );
+        }
+      ?>  
+      <div data-ix="hover-destaque" class="destaque faixa-cinza">
+        <img src="<?php echo  $thumb_url[0]; ?>" class="thumb-destaque">
+        <img src="<?php echo PW_THEME_URL ?>assets/images/icon-adm.svg" class="icon-destaque">
+        <div class="text-block">
+          <h3 class="titulo-destaque">
+            <?php 
+              $titulo = substr(get_the_title(),8);
+              echo $titulo;
+            ?>
+          </h3>
+          <p class="paragrafo resumo-detalhe">
+            <?php the_excerpt_max_charlength(240); ?>
+            <?php echo new_excerpt_more( "Leia mais" ) ?>
+          </p>
+        </div>
+      </div>
+      
+      <?php $objPage = new WP_Query( 'pagename=direito-ambiental' ); ?>
+      <?php if( $objPage->have_posts() ) : $objPage->the_post(); endif; ?>
+      <?php
+        // O ID da imagem destacada
+        $thumb_id = get_post_thumbnail_id();
 
-      $objPage = new WP_Query( $args ); ?>
-    <?php if( $objPage->have_posts() ) : ?>
+        // A URL da imagem
+        if ( $thumb_id ){
+          $thumb_url = wp_get_attachment_image_src( $thumb_id, 'medium' );
+        }
+      ?>  
+      <div data-ix="hover-destaque" class="destaque faixa-cinza">
+        <img src="<?php echo  $thumb_url[0]; ?>" class="thumb-destaque">
+        <img src="<?php echo PW_THEME_URL ?>assets/images/icon-amb.svg" class="icon-destaque">
+        <div class="text-block">
+          <h3 class="titulo-destaque">
+            <?php 
+              $titulo = substr(get_the_title(),8);
+              echo $titulo;
+            ?>
+          </h3>
+          <p class="paragrafo resumo-detalhe">
+            <?php the_excerpt_max_charlength(240); ?>
+            <?php echo new_excerpt_more( "Leia mais" ) ?>
+          </p>
+        </div>
+      </div> 
 
-      <?php while ( $objPage->have_posts() ) : $objPage->the_post(); ?>
+      <?php $objPage = new WP_Query( 'pagename=direito-constitucional' ); ?>
+      <?php if( $objPage->have_posts() ) : $objPage->the_post(); endif; ?>
+      <?php
+        // O ID da imagem destacada
+        $thumb_id = get_post_thumbnail_id();
 
-              <?php
-                // O ID da imagem destacada
-                $thumb_id = get_post_thumbnail_id();
+        // A URL da imagem
+        if ( $thumb_id ){
+          $thumb_url = wp_get_attachment_image_src( $thumb_id, 'medium' );
+        }
+      ?>  
+      <div data-ix="hover-destaque" class="destaque faixa-cinza">
+        <img src="<?php echo  $thumb_url[0]; ?>" class="thumb-destaque">
+        <img src="<?php echo PW_THEME_URL ?>assets/images/icon-const.svg" class="icon-destaque">
+        <div class="text-block">
+          <h3 class="titulo-destaque">
+            <?php 
+              $titulo = substr(get_the_title(),8);
+              echo $titulo;
+            ?>
+          </h3>
+          <p class="paragrafo resumo-detalhe">
+            <?php the_excerpt_max_charlength(240); ?>
+            <?php echo new_excerpt_more( "Leia mais" ) ?>
+          </p>
+        </div>
+      </div> 
 
-                // A URL da imagem
-                if ( $thumb_id ){
-                  $thumb_url = wp_get_attachment_image_src( $thumb_id, 'medium' );
-                }
-              ?>  
-              <div data-ix="hover-destaque" class="destaque faixa-cinza">
-                <img src="<?php echo  $thumb_url[0]; ?>" class="thumb-destaque">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-adm.svg" class="icon-destaque">
-                <div class="text-block">
-                  <h3 class="titulo-destaque">
-                    <?php 
-                      if ($objPage->post->post_name == "direito-de-infraestrutura") {
-                        $titulo = substr(get_the_title(),11);
-                      }else{
-                        $titulo = substr(get_the_title(),8); 
-                      }
-                      echo $titulo;
-                    ?>
-                  </h3>
-                  <p class="paragrafo resumo-detalhe">
-                    <?php the_excerpt_max_charlength(240); ?>
-                    <?php echo new_excerpt_more( "Leia mais" ) ?>
-                  </p>
-                </div>
-              </div>
-      <?php endwhile; ?>      
-      <?php wp_reset_postdata(); ?>  
-    <?php endif; ?>
+      <?php $objPage = new WP_Query( 'pagename=direito-de-infraestrutura' ); ?>
+      <?php if( $objPage->have_posts() ) : $objPage->the_post(); endif; ?>
+      <?php
+        // O ID da imagem destacada
+        $thumb_id = get_post_thumbnail_id();
+
+        // A URL da imagem
+        if ( $thumb_id ){
+          $thumb_url = wp_get_attachment_image_src( $thumb_id, 'medium' );
+        }
+      ?>  
+      <div data-ix="hover-destaque" class="destaque faixa-cinza">
+        <img src="<?php echo  $thumb_url[0]; ?>" class="thumb-destaque">
+        <img src="<?php echo PW_THEME_URL ?>assets/images/icon-infra.svg" class="icon-destaque">
+        <div class="text-block">
+          <h3 class="titulo-destaque">
+            <?php 
+              $titulo = substr(get_the_title(),11);
+              echo $titulo;
+            ?>
+          </h3>
+          <p class="paragrafo resumo-detalhe">
+            <?php the_excerpt_max_charlength(240); ?>
+            <?php echo new_excerpt_more( "Leia mais" ) ?>
+          </p>
+        </div>
+      </div> 
+
+      <?php $objPage = new WP_Query( 'pagename=direito-urbanistico' ); ?>
+      <?php if( $objPage->have_posts() ) : $objPage->the_post(); endif; ?>
+      <?php
+        // O ID da imagem destacada
+        $thumb_id = get_post_thumbnail_id();
+
+        // A URL da imagem
+        if ( $thumb_id ){
+          $thumb_url = wp_get_attachment_image_src( $thumb_id, 'medium' );
+        }
+      ?>  
+      <div data-ix="hover-destaque" class="destaque faixa-cinza">
+        <img src="<?php echo  $thumb_url[0]; ?>" class="thumb-destaque">
+        <img src="<?php echo PW_THEME_URL ?>assets/images/icon-urb.svg" class="icon-destaque">
+        <div class="text-block">
+          <h3 class="titulo-destaque">
+            <?php 
+              $titulo = substr(get_the_title(),8);
+              echo $titulo;
+            ?>
+          </h3>
+          <p class="paragrafo resumo-detalhe">
+            <?php the_excerpt_max_charlength(240); ?>
+            <?php echo new_excerpt_more( "Leia mais" ) ?>
+          </p>
+        </div>
+      </div>
+
+      <?php $objPage = new WP_Query( 'pagename=direito-tributario' ); ?>
+      <?php if( $objPage->have_posts() ) : $objPage->the_post(); endif; ?>
+      <?php
+        // O ID da imagem destacada
+        $thumb_id = get_post_thumbnail_id();
+
+        // A URL da imagem
+        if ( $thumb_id ){
+          $thumb_url = wp_get_attachment_image_src( $thumb_id, 'medium' );
+        }
+      ?>  
+      <div data-ix="hover-destaque" class="destaque faixa-cinza">
+        <img src="<?php echo  $thumb_url[0]; ?>" class="thumb-destaque">
+        <img src="<?php echo PW_THEME_URL ?>assets/images/icon-trib.svg" class="icon-destaque">
+        <div class="text-block">
+          <h3 class="titulo-destaque">
+            <?php 
+              $titulo = substr(get_the_title(),8);
+              echo $titulo;
+            ?>
+          </h3>
+          <p class="paragrafo resumo-detalhe">
+            <?php the_excerpt_max_charlength(240); ?>
+            <?php echo new_excerpt_more( "Leia mais" ) ?>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
