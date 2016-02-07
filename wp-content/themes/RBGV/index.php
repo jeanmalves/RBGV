@@ -9,10 +9,10 @@
       <?php
        /**
         * Objeto query do wordpress que realiza uma consulta
-        * da página pelo slug.  
+        * da página pelo slug.
         * @param slug da página
         * @return WP_Query Object
-        */  
+        */
       ?>
       <?php $objPage = new WP_Query( 'pagename=direito-administrativo' ); ?>
       <?php if( $objPage->have_posts() ) : $objPage->the_post(); endif; ?>
@@ -24,13 +24,13 @@
         if ( $thumb_id ){
           $thumb_url = wp_get_attachment_image_src( $thumb_id, 'medium' );
         }
-      ?>  
+      ?>
       <div data-ix="hover-destaque" class="destaque faixa-cinza">
         <img src="<?php echo  $thumb_url[0]; ?>" class="thumb-destaque">
         <img src="<?php echo PW_THEME_URL ?>assets/images/icon-adm.svg" class="icon-destaque">
         <div class="text-block">
           <h3 class="titulo-destaque">
-            <?php 
+            <?php
               $titulo = substr(get_the_title(),8);
               echo $titulo;
             ?>
@@ -41,7 +41,7 @@
           </p>
         </div>
       </div>
-      
+
       <?php $objPage = new WP_Query( 'pagename=direito-ambiental' ); ?>
       <?php if( $objPage->have_posts() ) : $objPage->the_post(); endif; ?>
       <?php
@@ -52,13 +52,13 @@
         if ( $thumb_id ){
           $thumb_url = wp_get_attachment_image_src( $thumb_id, 'medium' );
         }
-      ?>  
+      ?>
       <div data-ix="hover-destaque" class="destaque faixa-cinza">
         <img src="<?php echo  $thumb_url[0]; ?>" class="thumb-destaque">
         <img src="<?php echo PW_THEME_URL ?>assets/images/icon-amb.svg" class="icon-destaque">
         <div class="text-block">
           <h3 class="titulo-destaque">
-            <?php 
+            <?php
               $titulo = substr(get_the_title(),8);
               echo $titulo;
             ?>
@@ -68,7 +68,7 @@
             <?php echo new_excerpt_more( "Leia mais" ) ?>
           </p>
         </div>
-      </div> 
+      </div>
 
       <?php $objPage = new WP_Query( 'pagename=direito-constitucional' ); ?>
       <?php if( $objPage->have_posts() ) : $objPage->the_post(); endif; ?>
@@ -80,13 +80,13 @@
         if ( $thumb_id ){
           $thumb_url = wp_get_attachment_image_src( $thumb_id, 'medium' );
         }
-      ?>  
+      ?>
       <div data-ix="hover-destaque" class="destaque faixa-cinza">
         <img src="<?php echo  $thumb_url[0]; ?>" class="thumb-destaque">
         <img src="<?php echo PW_THEME_URL ?>assets/images/icon-const.svg" class="icon-destaque">
         <div class="text-block">
           <h3 class="titulo-destaque">
-            <?php 
+            <?php
               $titulo = substr(get_the_title(),8);
               echo $titulo;
             ?>
@@ -96,7 +96,7 @@
             <?php echo new_excerpt_more( "Leia mais" ) ?>
           </p>
         </div>
-      </div> 
+      </div>
 
       <?php $objPage = new WP_Query( 'pagename=direito-de-infraestrutura' ); ?>
       <?php if( $objPage->have_posts() ) : $objPage->the_post(); endif; ?>
@@ -108,13 +108,13 @@
         if ( $thumb_id ){
           $thumb_url = wp_get_attachment_image_src( $thumb_id, 'medium' );
         }
-      ?>  
+      ?>
       <div data-ix="hover-destaque" class="destaque faixa-cinza">
         <img src="<?php echo  $thumb_url[0]; ?>" class="thumb-destaque">
         <img src="<?php echo PW_THEME_URL ?>assets/images/icon-infra.svg" class="icon-destaque">
         <div class="text-block">
           <h3 class="titulo-destaque">
-            <?php 
+            <?php
               $titulo = substr(get_the_title(),11);
               echo $titulo;
             ?>
@@ -124,7 +124,7 @@
             <?php echo new_excerpt_more( "Leia mais" ) ?>
           </p>
         </div>
-      </div> 
+      </div>
 
       <?php $objPage = new WP_Query( 'pagename=direito-urbanistico' ); ?>
       <?php if( $objPage->have_posts() ) : $objPage->the_post(); endif; ?>
@@ -136,13 +136,13 @@
         if ( $thumb_id ){
           $thumb_url = wp_get_attachment_image_src( $thumb_id, 'medium' );
         }
-      ?>  
+      ?>
       <div data-ix="hover-destaque" class="destaque faixa-cinza">
         <img src="<?php echo  $thumb_url[0]; ?>" class="thumb-destaque">
         <img src="<?php echo PW_THEME_URL ?>assets/images/icon-urb.svg" class="icon-destaque">
         <div class="text-block">
           <h3 class="titulo-destaque">
-            <?php 
+            <?php
               $titulo = substr(get_the_title(),8);
               echo $titulo;
             ?>
@@ -164,13 +164,13 @@
         if ( $thumb_id ){
           $thumb_url = wp_get_attachment_image_src( $thumb_id, 'medium' );
         }
-      ?>  
+      ?>
       <div data-ix="hover-destaque" class="destaque faixa-cinza">
         <img src="<?php echo  $thumb_url[0]; ?>" class="thumb-destaque">
         <img src="<?php echo PW_THEME_URL ?>assets/images/icon-trib.svg" class="icon-destaque">
         <div class="text-block">
           <h3 class="titulo-destaque">
-            <?php 
+            <?php
               $titulo = substr(get_the_title(),8);
               echo $titulo;
             ?>
@@ -189,10 +189,10 @@
     <?php
      /**
       * Objeto query do wordpress que realiza uma consulta
-      * da página pelo slug.  
+      * da página pelo slug.
       * @param slug da página
       * @return WP_Query Object
-      */  
+      */
     ?>
     <?php $objPage = new WP_Query( 'pagename=quem-somos' ); ?>
     <?php if( $objPage->have_posts() ) : $objPage->the_post(); endif; ?>
@@ -202,16 +202,7 @@
         <?php echo get_post_meta($post->ID, 'subtitulo', true); ?>
       </h2>
     </div>
-    <?php
-      // O ID da imagem destacada
-      $thumb_id = get_post_thumbnail_id();
-
-      // A URL da imagem
-      if ( $thumb_id ){
-        $thumb_url = wp_get_attachment_image_src( $thumb_id, 'full' );
-      }
-    ?>
-    <img src="<?php echo  $thumb_url[0]; ?>" data-ix="scroll-reveal-part2" class="montagem-rbgv">
+    <img src="<?php echo PW_THEME_URL ?>assets/images/img-quemsomos.png" data-ix="scroll-reveal-part2" class="montagem-rbgv">
     <div data-ix="scroll-reveal-part-3" class="w-clearfix paragrafo resumo-empresa">
       <p><?php the_excerpt_max_charlength(865); ?></p>
         <a href="<?php echo get_permalink(); ?>" class="w-button btn-branco">Saiba mais</a>
