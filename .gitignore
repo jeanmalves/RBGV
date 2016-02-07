@@ -51,3 +51,4 @@ wp-config.php
 wp-settings.php
 .htaccess
 ftpsync.settings
+.remote-sync.json
