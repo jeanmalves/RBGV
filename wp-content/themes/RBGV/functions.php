@@ -1,5 +1,5 @@
 <?php
-	
+
 	/**
 	 * Definição de constantes WP.
 	*/
@@ -13,7 +13,7 @@
 	function custom_setup()
 	{
 		add_action( 'wp_enqueue_scripts', 'custom_formats' );
-		
+
 		register_nav_menus( array(
 			'menu-header' => 'Menu Header',
 			'menu-footer-left' => 'Menu Esquerdo Rodapé',
@@ -27,7 +27,7 @@
 
 	/**
 	 * Função que registra os scripts do site.
-	*/ 
+	*/
 	function custom_formats()
 	{
 		wp_register_style('normalize', PW_THEME_URL. 'assets/css/normalize.css',null, null, 'all');
@@ -42,19 +42,19 @@
 		wp_enqueue_script( 'webfont_load', PW_THEME_URL. 'assets/js/webfont_load.js', null, null, false );
 
 
- 		wp_enqueue_script('google_fonts');	
- 		wp_enqueue_script('webfont_load');	
- 		wp_enqueue_script('google_jquery');	
+ 		wp_enqueue_script('google_fonts');
+ 		wp_enqueue_script('webfont_load');
+ 		wp_enqueue_script('google_jquery');
 
 		wp_enqueue_style('normalize');
 		wp_enqueue_style('webflow');
 		wp_enqueue_style('rbgv-advogados');
 		wp_enqueue_style('header');
 
-			
-		wp_enqueue_script('modernizr');		
-		wp_enqueue_script('webflow_js');	
-		
+
+		wp_enqueue_script('modernizr');
+		wp_enqueue_script('webflow_js');
+
 
 	}
 
@@ -67,18 +67,18 @@
 	function my_nav_menu_items( $theme_location, $args = array() ) {
 
 		if ( ($theme_location) && ($locations = get_nav_menu_locations()) && isset($locations[$theme_location]) ) {
-	        
+
 	        $menu = get_term( $locations[$theme_location], 'nav_menu' );
 	       	$menu_items = wp_get_nav_menu_items($menu->term_id);
-	 
+
 			if($theme_location == "menu-header"){
 	        	$menu_list  = '<nav role="navigation"  data-ix="'.$args['nav']['data-ix'].'" class="'.$args['nav']['class'].'">'."\n";
-	 
+
 	        	$count = 0;
 	        	$submenu = false;
 
 		        foreach( $menu_items as $menu_item ) {
-		         
+
 		            $link = $menu_item->url;
 		            $title = $menu_item->title;
 
@@ -93,19 +93,19 @@
 		                    $menu_list .= ' </div>'."\n";
 		                }else{
 
-		                	$menu_list .= '<a href="'.$link.'" class="'.$args['a']['class'].'">'.$title.'</a>' ."\n";	
-		                }  
+		                	$menu_list .= '<a href="'.$link.'" class="'.$args['a']['class'].'">'.$title.'</a>' ."\n";
+		                }
 		            }
-		 
+
 		            if ( $parent_id == $menu_item->menu_item_parent ) {
-		 
+
 		                if ( !$submenu ) {
 		                    $submenu = true;
 		                    $menu_list .= ' <nav class="w-dropdown-list">';
 		                }
-		 
+
 		                $menu_list .= '<a href="'.$link.'" class="w-dropdown-link link-navdropdown">'.$title.'</a>' ."\n";
-		 
+
 		                if ( $menu_items[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ){
 		                    $menu_list .= ' </nav>'."\n";
 		                    $menu_list .= ' </div>'."\n";
@@ -115,7 +115,7 @@
 		            $count++;
 		        }
 	        	$menu_list .= '</nav>' ."\n";
-	        }	
+	        }
 	        else{
 
 	        	$menu_list  = '<ul class="w-list-unstyled menu-footer">'."\n";
@@ -124,14 +124,14 @@
 
 	        		$link = $menu_item->url;
 		            $title = $menu_item->title;
-		             
+
 		            if (array_key_exists("type", $args)) {
 
 		            	if($args['type'] == "area-atuacao"){
 			                if ($title == "Direito de Infraestrutura") {
 			                    $title = substr($title,11);
 			                }else{
-			                    $title = substr($title,8); 
+			                    $title = substr($title,8);
 			                }
 			            }
 			        }
@@ -144,8 +144,8 @@
 	        	}
 
 	        	$menu_list .= '</ul>' ."\n";
-	        }	
-	 
+	        }
+
 	    } else {
 	        $menu_list = '<!-- no menu defined in location "'.$theme_location.'" -->';
 	    }
@@ -182,18 +182,56 @@
 	}
 	add_filter( 'excerpt_more', 'new_excerpt_more' );
 
+	/**
+	 * Register three RBGV widget areas.
+	 *
+	 */
+	/* if ( function_exists('register_sidebar') )
+	 {
+
+			register_sidebar( array(
+				'name'          => __( 'Blog Sidebar' ),
+				'id'            => 'sidebar-1',
+				'description'   => __( 'Sidebar localizada na área de notícias.' ),
+				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</aside>',
+				'before_title'  => '<h1 class="widget-title">',
+				'after_title'   => '</h1>',
+			) );
+		register_sidebar( array(
+			'name'          => __( 'Content Sidebar', 'twentyfourteen' ),
+			'id'            => 'sidebar-2',
+			'description'   => __( 'Additional sidebar that appears on the right.', 'twentyfourteen' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h1 class="widget-title">',
+			'after_title'   => '</h1>',
+		) );
+		register_sidebar( array(
+			'name'          => __( 'Footer Widget Area', 'twentyfourteen' ),
+			'id'            => 'sidebar-3',
+			'description'   => __( 'Appears in the footer section of the site.', 'twentyfourteen' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h1 class="widget-title">',
+			'after_title'   => '</h1>',
+		) );
+
+	}
+*/
+
+
+
+
 
 	/**
 	 * Função para customizar o painel administrativo na sessão de configurações gerais.
 	 */
-
-
-
 	add_action('admin_init', 'my_general_section');
 
-	function my_general_section() {  
-	    add_settings_section(  
-	        'my_settings_section', // Section ID 
+	function my_general_section() {
+	    add_settings_section(
+	        'my_settings_section', // Section ID
 	        'Informações Adicionais', // Section Title
 	        'my_section_options_callback', // Callback
 	        'general' // What Page?  This makes the section show up on the General Settings Page
@@ -207,8 +245,8 @@
 	        'my_settings_section', // Name of our section
 	        array( // The $args
 	            'endereco_site' // Should match Option ID
-	        )  
-	    ); 
+	        )
+	    );
 
 	     add_settings_field( // Option 2
 	        'cep_site', // Option ID
@@ -218,8 +256,8 @@
 	        'my_settings_section', // Name of our section (General Settings)
 	        array( // The $args
 	            'cep_site' // Should match Option ID
-	        )  
-	    ); 
+	        )
+	    );
 
 	    add_settings_field( // Option 2
 	        'cidade_site', // Option ID
@@ -229,8 +267,8 @@
 	        'my_settings_section', // Name of our section (General Settings)
 	        array( // The $args
 	            'cidade_site' // Should match Option ID
-	        )  
-	    ); 
+	        )
+	    );
 
 	    add_settings_field( // Option 2
 	        'fone_site', // Option ID
@@ -240,8 +278,8 @@
 	        'my_settings_section', // Name of our section (General Settings)
 	        array( // The $args
 	            'fone_site' // Should match Option ID
-	        )  
-	    ); 
+	        )
+	    );
 
 	    add_settings_field( // Option 2
 	        'email_site', // Option ID
@@ -251,8 +289,8 @@
 	        'my_settings_section', // Name of our section (General Settings)
 	        array( // The $args
 	            'email_site' // Should match Option ID
-	        )  
-	    ); 
+	        )
+	    );
 
 	    register_setting('general','endereco_site', 'esc_attr');
 	    register_setting('general','fone_site', 'esc_attr');
@@ -262,7 +300,7 @@
 	}
 
 	function my_section_options_callback() { // Section Callback
-	    echo '<p>Informações de endereço e contato do site.</p>';  
+	    echo '<p>Informações de endereço e contato do site.</p>';
 	}
 
 	function my_textbox_callback($args) {  // Textbox Callback
