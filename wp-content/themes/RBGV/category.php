@@ -48,12 +48,7 @@
         <?php endif; ?>
         <a href="#" class="w-button btn-branco">postagens antigas</a>
       </div>
-      <?php
-        get_sidebar('blog');
-        /*if ( is_active_sidebar('sidebar-1') ) {
-          dynamic_sidebar('sidebar-1');
-        }*/
-      ?>
+      <?php get_sidebar('blog');?>
     </div>
   </div>
 </div>
