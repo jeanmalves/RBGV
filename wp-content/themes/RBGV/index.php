@@ -410,53 +410,52 @@
         </div>
       </div><a href="#" class="w-button btn-branco float-right">acesse</a>
       <div class="w-clearfix posts-home">
-        <div data-ix="scroll-reveal-part2" class="post-home faixa-verde"><a href="#" class="w-inline-block link"><h3 class="nome-post">Congresso de Direito Ambiental acontece nesta semana</h3></a>
+        <?php
+          wp_reset_query();
+          // 3 é o número de posts recentes que se deseja mostrar
+          $aRecentPosts = new WP_Query("showposts=2");
+        //  echo "<pre>"; print_r($aRecentPosts); die();
+           if( $aRecentPosts->have_posts() ) :
+             $data_ix = 2;
+             $cor = "verde";
+             while($aRecentPosts->have_posts()) : $aRecentPosts->the_post();
+
+             $category = get_the_category($aRecentPosts->ID);
+        ?>
+        <div data-ix="scroll-reveal-part<?php echo $data_ix; ?>" class="post-home faixa-<?php echo $cor; ?>">
+          <a href="<?php echo get_permalink(); ?>" class="w-inline-block link">
+            <h3 class="nome-post"><?php the_title(); ?></h3>
+          </a>
           <div>
             <div>
               <a href="#" class="w-clearfix w-inline-block link link-info-blog">
                 <img src="<?php echo PW_THEME_URL ?>assets/images/icon-folder-verde.svg" class="icon-info-blog">
-                <div class="legenda">Notícias</div>
+                <div class="legenda"><?php echo $category[0]->cat_name; ?></div>
               </a>
               <a href="#" class="w-clearfix w-inline-block link link-info-blog">
                 <img src="<?php echo PW_THEME_URL ?>assets/images/icon-autor-verde.svg" class="icon-info-blog">
-                <div class="legenda">RBGV Advogados</div>
+                <div class="legenda"><?php the_author() ?></div>
               </a>
               <a href="#" class="w-clearfix w-inline-block link">
                 <img src="<?php echo PW_THEME_URL ?>assets/images/icon-data-verde.svg" class="icon-info-blog">
-                <div class="legenda">24/01/2016</div>
+                <div class="legenda"><?php the_time('d/m/Y'); ?></div>
               </a>
             </div>
           </div>
           <div class="w-embed">
             <hr class="hr2">
           </div>
-          <p class="paragrafo">Este espaço é destinado para inserção de conteúdos, imagens, vídeos, links, banners, notícias, ícones, produtos, publicidade e muito mais. Aproveite esta oportunidade para destacar os pontos fortes com a infinidade de recursos que a ferramenta Wordpress proporciona para sua empresa.&nbsp;&nbsp;<a class="link leia-mais" id="link" href="#">Leia mais</a>
+          <p class="paragrafo">
+            <?php the_excerpt_max_charlength(319); ?>
+            <?php echo new_excerpt_more( "Leia mais" ) ?>
           </p>
         </div>
-        <div data-ix="scroll-reveal-part-3" class="post-home faixa-clara">
-          <h3 class="nome-post">Congresso de Direito Ambiental acontece nesta semana</h3>
-          <div>
-            <div>
-              <a href="#" class="w-clearfix w-inline-block link link-info-blog">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-folder-claro.svg" class="icon-info-blog">
-                <div class="legenda">Notícias</div>
-              </a>
-              <a href="#" class="w-clearfix w-inline-block link link-info-blog">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-autor-claro.svg" class="icon-info-blog">
-                <div class="legenda">RBGV Advogados</div>
-              </a>
-              <a href="#" class="w-clearfix w-inline-block link">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-data-claro.svg" class="icon-info-blog">
-                <div class="legenda">24/01/2016</div>
-              </a>
-            </div>
-          </div>
-          <div class="w-embed">
-            <hr class="hr2">
-          </div>
-          <p class="paragrafo">Este espaço é destinado para inserção de conteúdos, imagens, vídeos, links, banners, notícias, ícones, produtos, publicidade e muito mais. Aproveite esta oportunidade para destacar os pontos fortes com a infinidade de recursos que a ferramenta Wordpress proporciona para sua empresa.&nbsp;&nbsp;<a class="link leia-mais" id="link" href="#">Leia mais</a>
-          </p>
-        </div>
+        <?php
+          $data_ix++;
+          $cor = "clara";
+        ?>
+        <?php endwhile; ?>
+      <?php endif; ?>
       </div>
     </div>
   </div>
