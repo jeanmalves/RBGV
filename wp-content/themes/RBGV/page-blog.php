@@ -1,3 +1,8 @@
+<?php
+/*
+Template Name: Listagem de posts
+*/
+?>
 <?php get_header(); ?>
 <div class="w-section featured-section">
   <div class="w-container area-pagina">
