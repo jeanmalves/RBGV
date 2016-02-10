@@ -5,16 +5,23 @@
       <?php the_post(); ?>
       <h1 class="titulo-sessao"><?php the_title(); ?></h1>
       <div class="post-reference">
-        <a href="#" class="w-clearfix w-inline-block link link-info-blog">
+        <?php
+          $category = get_the_category(get_the_ID());
+           $linkCategory = get_category_link( $category[0]->cat_ID );
+
+           $archive_year = get_the_time('Y');
+           $archive_month = get_the_time('m');
+           $archive_day =  get_the_time('d');
+         ?>
+        <a href="<?php echo esc_url( $linkCategory ); ?>" class="w-clearfix w-inline-block link link-info-blog">
           <img src="<?php echo PW_THEME_URL ?>assets/images/icon-folder-verde.svg" class="icon-info-blog">
-          <?php $category = get_the_category(get_the_ID()); ?>
           <div class="legenda"><?php echo $category[0]->cat_name; ?></div>
         </a>
-        <a href="#" class="w-clearfix w-inline-block link link-info-blog">
+        <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" class="w-clearfix w-inline-block link link-info-blog">
           <img src="<?php echo PW_THEME_URL ?>assets/images/icon-autor-verde.svg" class="icon-info-blog">
           <div class="legenda"><?php the_author() ?></div>
         </a>
-        <a href="#" class="w-clearfix w-inline-block link">
+        <a href="<?php echo get_day_link( $archive_year, $archive_month, $archive_day); ?>" class="w-clearfix w-inline-block link">
           <img src="<?php echo PW_THEME_URL ?>assets/images/icon-data-verde.svg" class="icon-info-blog">
           <div class="legenda"><?php the_time('d/m/Y'); ?></div>
         </a>
