@@ -412,7 +412,7 @@
       <div class="w-clearfix posts-home">
         <?php
           wp_reset_query();
-          // 3 é o número de posts recentes que se deseja mostrar
+          // showposts é o número de posts recentes que se deseja mostrar
           $aRecentPosts = new WP_Query("showposts=2");
         //  echo "<pre>"; print_r($aRecentPosts); die();
            if( $aRecentPosts->have_posts() ) :
