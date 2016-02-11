@@ -54,7 +54,7 @@
               <?php  } ?>
             <?php endif; ?>
           </div>
-        </div><a href="#" class="w-button btn-branco">postagens antigas</a>
+        </div><a href="<?php echo PW_URL ?>/postagens-antigas" class="w-button btn-branco">postagens antigas</a>
       </div>
       <?php get_sidebar('blog');?>
     </div>

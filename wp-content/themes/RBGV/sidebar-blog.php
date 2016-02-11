@@ -1,18 +1,5 @@
 <div class="sidebar">
-  <div class="w-form">
-    <form id="wf-form-Search-Form" name="wf-form-Search-Form" data-name="Search Form" class="search-form">
-      <div class="w-embed w-hidden-small w-hidden-tiny">
-        <input type="text" name="busca" value="Busca" onkeyup="showUser()" class="busca">
-        <input type="button" name="button" value="" onclick="showUser()" class="btn-search">
-      </div>
-    </form>
-    <div class="w-form-done">
-      <p></p>
-    </div>
-    <div class="w-form-fail msg-erro">
-      <p>Ocorreu um erro.</p>
-    </div>
-  </div>
+  <?php get_search_form(); ?>
   <div class="w-clearfix atributos">
     <img src="<?php echo PW_THEME_URL ?>assets/images/icon-paper.svg" class="icon-area">
     <h4 class="titulo-area">Recentes</h4>

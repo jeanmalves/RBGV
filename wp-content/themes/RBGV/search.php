@@ -3,18 +3,7 @@
   <div class="w-container area-pagina">
     <div data-ix="scroll-reveal-part-1" class="titulo">
       <h1 class="titulo-sessao">
-        <!-- Se a pagina se refere a uma categoria -->
-        <?php if (is_category()) {  single_cat_title("Artigos da Categoria "); } ?>
-
-        <!-- Se a pagina se refere a uma tag -->
-        <?php if (is_tag()) { single_tag_title("Artigos da Tag "); } ?>
-
-        <!-- Se a pagina se refere a um author -->
-        <?php if (is_author()) {  echo "Artigos do Autor ". get_the_author(); } ?>
-
-        <!-- Se a pagina se refere a uma data -->
-        <?php if (is_day()) { echo "Artigos do dia ". get_the_time('j F, Y');  } ?>
-
+        <?php printf( __( 'Resultados da Busca por: %s', 'Busca' ), get_search_query() ); ?>
       </h1>
       <h2 class="subtitulo-sessao">Informações publicadas no Blog da RBGV Advogados</h2>
     </div>
@@ -22,8 +11,7 @@
       <div class="publicacao">
         <?php
          if( have_posts() ) :
-           $count = 0;
-           while( have_posts() && $count < 4 ) : the_post();
+           while( have_posts() ) : the_post();
              $category = get_the_category( get_the_ID() );
              $linkCategory = get_category_link( $category[0]->cat_ID );
 
@@ -63,7 +51,6 @@
                 <hr>
               </div>
             </div>
-            <?php $count++; ?>
           <?php endwhile; ?>
         <?php else: ?>
                 <div class="artigo">
