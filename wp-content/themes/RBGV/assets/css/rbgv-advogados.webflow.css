@@ -408,12 +408,16 @@
   margin: 15px 10px;
 }
 
-.link.link-categoria {
+.link.link-categoria, .link-recentes, .link-tag {
   color: #a2a5a8;
 }
 
-.link.link-categoria:hover {
+.link.link-categoria:hover, .link.link-recentes:hover  {
   color: #1f382f;
+}
+
+.link.link-tag:hover  {
+  color: #fff;
 }
 
 .link.link-fb {

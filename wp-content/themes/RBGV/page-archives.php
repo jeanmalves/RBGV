@@ -33,7 +33,9 @@
         ?>
               <div class="post-min">
                 <div>
-                  <h3 class="nome-post"><?php the_title(); ?></h3>
+                  <a href="<?php the_permalink() ?>" class="link">
+                    <h3 class="nome-post"><?php the_title(); ?></h3>
+                  </a>
                   <a href="<?php echo esc_url( $linkCategory ); ?>" class="w-clearfix w-inline-block link link-info-blog">
                     <img src="<?php echo PW_THEME_URL ?>assets/images/icon-folder-verde.svg" class="icon-info-blog">
                     <div class="legenda"><?php echo $category[0]->cat_name; ?></div>

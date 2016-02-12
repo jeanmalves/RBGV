@@ -22,8 +22,7 @@
       <div class="publicacao">
         <?php
          if( have_posts() ) :
-           $count = 0;
-           while( have_posts() && $count < 4 ) : the_post();
+           while( have_posts() ) : the_post();
              $category = get_the_category( get_the_ID() );
              $linkCategory = get_category_link( $category[0]->cat_ID );
 
@@ -33,7 +32,9 @@
         ?>
             <div class="post-min">
               <div>
-                <h3 class="nome-post"><?php the_title(); ?></h3>
+                <a href="<?php the_permalink() ?>" class="link">
+                  <h3 class="nome-post"><?php the_title(); ?></h3>
+                </a>
                 <a href="<?php echo esc_url( $linkCategory ); ?>" class="w-clearfix w-inline-block link link-info-blog">
                   <img src="<?php echo PW_THEME_URL ?>assets/images/icon-folder-verde.svg" class="icon-info-blog">
                   <div class="legenda"><?php echo $category[0]->cat_name; ?></div>
@@ -63,8 +64,19 @@
                 <hr>
               </div>
             </div>
-            <?php $count++; ?>
           <?php endwhile; ?>
+          <?php
+            global $wp_query;
+
+            $big = 999999999; // need an unlikely integer
+
+            echo paginate_links( array(
+                'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+                'format' => '?paged=%#%',
+                'current' => max( 1, get_query_var('paged') ),
+                'total' => $wp_query->max_num_pages
+            ) );
+          ?>
         <?php else: ?>
                 <div class="artigo">
                     <h2 class="subtitulo-sessao">Lamentamos mas não foram encontrados artigos.</h2>

@@ -15,7 +15,7 @@
     ?>
       <div class="paragrafo">
         •  Título da último post:
-        <a href="<?php the_permalink() ?>" title="Link para <?php the_title(); ?> " rel=""><?php the_title(); ?>.</a>
+        <a href="<?php the_permalink() ?>" title="Link para <?php the_title(); ?> " class="link link-recentes" rel=""><?php the_title(); ?>.</a>
       </div>
     <?php endwhile; ?>
   <?php endif; ?>
@@ -30,7 +30,7 @@
       foreach ($terms as $term) {
           printf( '<div class="tag">
                       <div>
-                        <a href="'. get_tag_link($term->term_id) .'">%1$s</a>
+                        <a href="'. get_tag_link($term->term_id) .'" class="link link-tag">%1$s</a>
                       </div>
                    </div>',
                   $term->name

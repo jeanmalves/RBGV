@@ -14,9 +14,16 @@ Template Name: Listagem de posts
     <div data-ix="scroll-reveal-part2" class="w-clearfix conteudo">
       <div class="publicacao">
         <?php
+        $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
+          $args = array(
+          'posts_per_page' => 4,
+          'post_type'=>'post',
+          'paged' => $paged,
+          'order'=>'DESC',
+          );
           wp_reset_query();
           // showposts é o número de posts recentes que se deseja mostrar
-          $aRecentPosts = new WP_Query("showposts=4");
+          $aRecentPosts = new WP_Query($args);
          if( $aRecentPosts->have_posts() ) :
            while($aRecentPosts->have_posts()) : $aRecentPosts->the_post();
              $category = get_the_category($aRecentPosts->ID);
@@ -28,7 +35,9 @@ Template Name: Listagem de posts
         ?>
             <div class="post-min">
               <div>
-                <h3 class="nome-post"><?php the_title(); ?></h3>
+                <a href="<?php the_permalink() ?>" class="link">
+                  <h3 class="nome-post"><?php the_title(); ?></h3>
+                </a>
                 <a href="<?php echo esc_url( $linkCategory ); ?>" class="w-clearfix w-inline-block link link-info-blog">
                   <img src="<?php echo PW_THEME_URL ?>assets/images/icon-folder-verde.svg" class="icon-info-blog">
                   <div class="legenda"><?php echo $category[0]->cat_name; ?></div>
@@ -58,6 +67,26 @@ Template Name: Listagem de posts
               </div>
             </div>
           <?php endwhile; ?>
+          <nav id="pagination" class="container">
+            <?php /*
+            <a href="" >1</a>
+            <span></span>
+            */
+
+            $page_cur = (int) $aRecentPosts->get( 'paged' );
+            if( !$page_cur )  $page_cur = 1;
+            $page_total = (int) $aRecentPosts->max_num_pages;
+
+            echo paginate_links(
+              array(
+                'current'=>$page_cur,
+                'total'=>$page_total,
+                'base'=> str_replace( $page_total+1, '%#%', get_pagenum_link( $page_total+1 ) ),
+                'prev_next'=>true
+              )
+            );
+            ?>
+          </nav>
         <?php endif; ?>
         <a href="<?php echo PW_URL ?>/postagens-antigas" class="w-button btn-branco">postagens antigas</a>
       </div>
