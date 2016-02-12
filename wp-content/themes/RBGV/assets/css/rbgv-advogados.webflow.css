@@ -1255,7 +1255,7 @@
   width: 202px;
 }
 
-.btn-search {
+.btn-search, .btn-search:focus {
   position: relative;
   width: 20%;
   height: 50px;
@@ -1272,11 +1272,6 @@
   background-color: #007168;
   background-image: url('../images/icon-search-over.svg');
   background-size: 23px 20px;
-}
-
-.btn-search:focus {
-  border-bottom: 1px solid #007168;
-  background-color: transparent;
 }
 
 .msg-erro {
