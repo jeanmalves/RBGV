@@ -11,6 +11,11 @@
 	<link rel="shortcut icon" type="image/x-icon" href="<?php echo PW_THEME_URL ?>assets/images/favicon.png">
 	<link rel="apple-touch-icon" href="<?php echo PW_THEME_URL ?>assets/images/webclip.jpg">
 	<?php wp_head(); ?>
+	<script>
+		//para não criar muitas variáveis dispersas, é interessante criar um array de variáveis
+		var VARS_AMBIENTE = new Array();
+		VARS_AMBIENTE['WP-JS'] = '<?php echo PW_THEME_URL ?>';
+</script>
 </head>
 <body class="body">
 	<?php echo do_shortcode( '[mc4wp_form id="126"]' ) ?><!-- formulário lightbox -->

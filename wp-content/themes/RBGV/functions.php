@@ -40,11 +40,13 @@
 		wp_enqueue_script( 'webflow_js', PW_THEME_URL. 'assets/js/webflow.js', null, null, false );
 		wp_enqueue_script( 'google_fonts', 'https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js', null, null, false );
 		wp_enqueue_script( 'webfont_load', PW_THEME_URL. 'assets/js/webfont_load.js', null, null, false );
+		wp_enqueue_script( 'mapa', PW_THEME_URL. 'assets/js/mapa.js', null, null, false );
 
 
  		wp_enqueue_script('google_fonts');
  		wp_enqueue_script('webfont_load');
  		wp_enqueue_script('google_jquery');
+ 		wp_enqueue_script('mapa');
 
 		wp_enqueue_style('normalize');
 		wp_enqueue_style('webflow');
