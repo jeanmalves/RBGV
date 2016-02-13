@@ -58,6 +58,11 @@
 
 	}
 
+
+	require_once __DIR__ . '/functions/security.php';
+	require_once __DIR__ . '/functions/services/service-contact-form.php';
+	require_once __DIR__ . '/functions/controllers/controller-contact.php';
+
 	/**
 	 * Função para exibir os menus do site.
 	*/
