@@ -36,7 +36,7 @@ class Service_Contact_Form {
                 'is_required' => true
             ),
             'telefone' => array(
-                'value' => sanitize_email( $_POST[ 'field_fone' ] ),
+                'value' => sanitize_text_field( $_POST[ 'field_fone' ] ),
                 'is_required' => false
             ),
             'subject' => array(
