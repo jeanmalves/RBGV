@@ -31,7 +31,7 @@
         <div class="txt-footer">&copy; <?php echo date("Y"); ?> - Todos os direitos reservados.
           <br> Desenvolvido por <a class="drnaweb" target="_blank" href="http://www.drnaweb.com">Doutor na Web</a>
         </div>
-        <a href="#" class="w-clearfix w-inline-block btn-transparente btn-footer">
+        <a href="<?php echo PW_URL; ?>/localizacao" class="w-clearfix w-inline-block btn-transparente btn-footer">
           <img src="<?php echo PW_THEME_URL ?>assets/images/icon-mapa.svg" class="icon-local">
           <div class="legenda-local">Localização no mapa</div>
         </a>
@@ -62,9 +62,9 @@
       <div class="txt-footer endereco">
         <?php
           printf(
-            '%1$s &nbsp; &nbsp; | &nbsp; &nbsp; 
+            '%1$s &nbsp; &nbsp; | &nbsp; &nbsp;
             CEP %2$s &nbsp; &nbsp; | &nbsp; &nbsp;
-            %3$s &nbsp; &nbsp; | &nbsp; &nbsp; 
+            %3$s &nbsp; &nbsp; | &nbsp; &nbsp;
             %4$s &nbsp; &nbsp; | &nbsp; &nbsp;
             <a class="link branco" href="mailto:%5$s"> %5$s</a>',
             get_option('endereco_site'),
