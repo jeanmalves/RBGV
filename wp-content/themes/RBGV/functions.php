@@ -6,6 +6,7 @@
 	define( 'PW_URL', get_home_url() );
 	define( 'PW_THEME_URL', get_bloginfo( 'template_url' ) . '/' );
 	define( 'PW_SITE_NAME', get_bloginfo( 'name' ) );
+	define('TYPES_USE_STYLING_EDITOR', true);
 
 
 	add_action('after_setup_theme', 'custom_setup' );
