@@ -6,10 +6,7 @@
        <h2 class="subtitulo-sessao">Time dedicado à RBGV Advogados</h2>
      </div>
      <div class="w-clearfix conteudo">
-       <?php
-          $prof = new WP_Query(array('post_type'=>'profissional'));
-          $count = 0;
-       ?>
+       <?php $prof = new WP_Query(array('post_type'=>'profissional'));?>
        <?php   if( $prof->have_posts() ) : ?>
           <?php   while( $prof->have_posts() ) : $prof->the_post(); ?>
                     <div data-ix="scroll-reveal-part2" class="w-clearfix box-perfil">
@@ -17,9 +14,7 @@
                        <div class="hexagono um">
                          <div class="imagem1">
                            <div class="imagem2">
-                             <?php if ( has_post_thumbnail() ) : ?>
-                               <?php  the_post_thumbnail('thumbnail'); ?>
-                             <?php endif; ?>
+                             <?php echo types_render_field( "imagem-do-perfil", array( "alt" => "foto do perfil","size" => "thumbnail") ); ?>
                            </div>
                          </div>
                        </div>
@@ -33,7 +28,7 @@
                           <hr class: "hr"="">
                         </div>
                         <p class="paragrafo">
-                          <?php the_content(); ?>
+                          <?php the_excerpt(); ?>
                         </p>
                         <a href="<?php the_permalink(); ?>" class="w-button btn-branco btn-perfil">ver perfil completo</a>
                       </div>

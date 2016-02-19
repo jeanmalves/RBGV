@@ -216,181 +216,43 @@
       </div>
       <div data-animation="slide" data-duration="1000" data-delay="3000" data-autoplay="1" class="w-slider carrossel">
         <div class="w-slider-mask">
-          <div class="w-slide slide">
-            <a data-ix="hover-perfil-home" class="w-inline-block link link-perfil">
-              <div class="hexagono um">
-                <div class="imagem1">
-                  <div class="imagem2">
-                    <div data-ix="hover-invisivel" class="overlay-foto">
-                      <div data-ix="hover-perfil-home" class="ver-perfil">ver perfil</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <h3 class="nome">Nahima Peron Razuk Coelho</h3>
-              <div class="cargo">Advogada</div>
-            </a>
-            <div class="redes-perfil">
-              <a href="mailto:nahima@rbgv.com.br?subject=Contato%20pelo%20Web%20Site%20da%20RBGV" target="_blank" data-ix="btn-redes" class="w-inline-block link link-mail"%5Bemail%5D%5Bexists%5D%3Dyes">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-mail.svg" class="icon-mail">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/bg-icon-hover.svg" data-ix="hover-invisivel" class="overlay">
-              </a>
-              <a href="http://www.linkedin.com" target="_blank" data-ix="btn-redes" class="w-inline-block link link-linkedin"%5Blinked-in-link%5D%5Bexists%5D%3Dyes">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-linkedin.svg" class="icon-mail">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-linkedin-hover.svg" data-ix="hover-invisivel" class="overlay">
-              </a>
-            </div>
-          </div>
-          <div class="w-slide slide">
-            <a data-ix="hover-perfil-home" class="w-inline-block link link-perfil">
-              <div class="hexagono um">
-                <div class="imagem1">
-                  <div class="imagem2">
-                    <div data-ix="hover-invisivel" class="overlay-foto">
-                      <div data-ix="hover-perfil-home" class="ver-perfil">ver perfil</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <h2 class="nome">Nathalia Lima Barreto</h2>
-              <div class="cargo">Advogada</div>
-            </a>
-            <div class="redes-perfil">
-              <a href="mailto:nahima@rbgv.com.br?subject=Contato%20pelo%20Web%20Site%20da%20RBGV" target="_blank" data-ix="btn-redes" class="w-inline-block link link-mail"%5Bemail%5D%5Bexists%5D%3Dyes">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-mail.svg" class="icon-mail">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/bg-icon-hover.svg" data-ix="hover-invisivel" class="overlay">
-              </a>
-              <a href="http://www.linkedin.com" target="_blank" data-ix="btn-redes" class="w-inline-block link link-linkedin"%5Blinked-in-link%5D%5Bexists%5D%3Dyes">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-linkedin.svg" class="icon-mail">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-linkedin-hover.svg" data-ix="hover-invisivel" class="overlay">
-              </a>
-            </div>
-          </div>
-          <div class="w-slide slide">
-            <a href="perfil-profissional.html" data-ix="hover-perfil-home" class="w-inline-block link link-perfil">
-              <div class="hexagono um">
-                <div class="imagem1">
-                  <div class="imagem2">
-                    <div data-ix="hover-invisivel" class="overlay-foto">
-                      <div data-ix="hover-perfil-home" class="ver-perfil">ver perfil</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <h2 class="nome">Paula Bernardelli</h2>
-              <div class="cargo">Advogada</div>
-            </a>
-            <div class="redes-perfil">
-              <a href="mailto:nahima@rbgv.com.br?subject=Contato%20pelo%20Web%20Site%20da%20RBGV" target="_blank" data-ix="btn-redes" class="w-inline-block link link-mail"%5Bemail%5D%5Bexists%5D%3Dyes">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-mail.svg" class="icon-mail">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/bg-icon-hover.svg" data-ix="hover-invisivel" class="overlay">
-              </a>
-              <a href="http://www.linkedin.com" target="_blank" data-ix="btn-redes" class="w-inline-block link link-linkedin"%5Blinked-in-link%5D%5Bexists%5D%3Dyes">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-linkedin.svg" class="icon-mail">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-linkedin-hover.svg" data-ix="hover-invisivel" class="overlay">
-              </a>
-            </div>
-          </div>
-          <div class="w-slide slide">
-            <a data-ix="hover-perfil-home" class="w-inline-block link link-perfil">
-              <div class="hexagono um">
-                <div class="imagem1">
-                  <div class="imagem2">
-                    <div data-ix="hover-invisivel" class="overlay-foto">
-                      <div data-ix="hover-perfil-home" class="ver-perfil">ver perfil</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <h2 class="nome">Thanyelle Galmacci</h2>
-              <div class="cargo">Advogada</div>
-            </a>
-            <div class="redes-perfil">
-              <a href="mailto:nahima@rbgv.com.br?subject=Contato%20pelo%20Web%20Site%20da%20RBGV" target="_blank" data-ix="btn-redes" class="w-inline-block link link-mail"%5Bemail%5D%5Bexists%5D%3Dyes">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-mail.svg" class="icon-mail">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/bg-icon-hover.svg" data-ix="hover-invisivel" class="overlay">
-              </a>
-              <a href="http://www.linkedin.com" target="_blank" data-ix="btn-redes" class="w-inline-block link link-linkedin"%5Blinked-in-link%5D%5Bexists%5D%3Dyes">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-linkedin.svg" class="icon-mail">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-linkedin-hover.svg" data-ix="hover-invisivel" class="overlay">
-              </a>
-            </div>
-          </div>
-          <div class="w-slide slide">
-            <a data-ix="hover-perfil-home" class="w-inline-block link link-perfil">
-              <div class="hexagono um">
-                <div class="imagem1">
-                  <div class="imagem2">
-                    <div data-ix="hover-invisivel" class="overlay-foto">
-                      <div data-ix="hover-perfil-home" class="ver-perfil">ver perfil</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <h2 class="nome">Thiago Priess Valiati</h2>
-              <div class="cargo">Advogado</div>
-            </a>
-            <div class="redes-perfil">
-              <a href="mailto:nahima@rbgv.com.br?subject=Contato%20pelo%20Web%20Site%20da%20RBGV" target="_blank" data-ix="btn-redes" class="w-inline-block link link-mail"%5Bemail%5D%5Bexists%5D%3Dyes">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-mail.svg" class="icon-mail">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/bg-icon-hover.svg" data-ix="hover-invisivel" class="overlay">
-              </a>
-              <a href="http://www.linkedin.com" target="_blank" data-ix="btn-redes" class="w-inline-block link link-linkedin"%5Blinked-in-link%5D%5Bexists%5D%3Dyes">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-linkedin.svg" class="icon-mail">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-linkedin-hover.svg" data-ix="hover-invisivel" class="overlay">
-              </a>
-            </div>
-          </div>
-          <div class="w-slide slide">
-            <a data-ix="hover-perfil-home" class="w-inline-block link link-perfil">
-              <div class="hexagono um">
-                <div class="imagem1">
-                  <div class="imagem2">
-                    <div data-ix="hover-invisivel" class="overlay-foto">
-                      <div data-ix="hover-perfil-home" class="ver-perfil">ver perfil</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <h2 class="nome slider">Alicia Florick</h2>
-              <div class="cargo">Estagiária de Direito</div>
-            </a>
-            <div class="redes-perfil">
-              <a href="mailto:nahima@rbgv.com.br?subject=Contato%20pelo%20Web%20Site%20da%20RBGV" target="_blank" data-ix="btn-redes" class="w-inline-block link link-mail"%5Bemail%5D%5Bexists%5D%3Dyes">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-mail.svg" class="icon-mail">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/bg-icon-hover.svg" data-ix="hover-invisivel" class="overlay">
-              </a>
-              <a href="http://www.linkedin.com" target="_blank" data-ix="btn-redes" class="w-inline-block link link-linkedin"%5Blinked-in-link%5D%5Bexists%5D%3Dyes">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-linkedin.svg" class="icon-mail">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-linkedin-hover.svg" data-ix="hover-invisivel" class="overlay">
-              </a>
-            </div>
-          </div>
-          <div class="w-slide slide">
-            <a data-ix="hover-perfil-home" class="w-inline-block link link-perfil">
-              <div class="hexagono um">
-                <div class="imagem1">
-                  <div class="imagem2">
-                    <div data-ix="hover-invisivel" class="overlay-foto">
-                      <div data-ix="hover-perfil-home" class="ver-perfil">ver perfil</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <h2 class="nome">Annalise Keating</h2>
-              <div class="cargo">Advogada</div>
-            </a>
-            <div class="redes-perfil">
-              <a href="mailto:nahima@rbgv.com.br?subject=Contato%20pelo%20Web%20Site%20da%20RBGV" target="_blank" data-ix="btn-redes" class="w-inline-block link link-mail"%5Bemail%5D%5Bexists%5D%3Dyes">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-mail.svg" class="icon-mail">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/bg-icon-hover.svg" data-ix="hover-invisivel" class="overlay">
-              </a>
-              <a href="http://www.linkedin.com" target="_blank" data-ix="btn-redes" class="w-inline-block link link-linkedin"%5Blinked-in-link%5D%5Bexists%5D%3Dyes">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-linkedin.svg" class="icon-mail">
-                <img src="<?php echo PW_THEME_URL ?>assets/images/icon-linkedin-hover.svg" data-ix="hover-invisivel" class="overlay">
-              </a>
-            </div>
-          </div>
+          <?php $prof = new WP_Query(array('post_type'=>'profissional')); ?>
+          <?php   if( $prof->have_posts() ) : ?>
+            <?php   while( $prof->have_posts() ) : $prof->the_post(); ?>
+                      <div class="w-slide slide">
+                        <a data-ix="hover-perfil-home" class="w-inline-block link link-perfil">
+                          <div class="hexagono um">
+                            <div class="imagem1">
+                              <div class="imagem2">
+                                  <?php echo types_render_field( "imagem-do-perfil", array( "alt" => "foto do perfil", "size" => "thumbnail") ); ?>
+                                <div data-ix="hover-invisivel" class="overlay-foto">
+                                  <div data-ix="hover-perfil-home" class="ver-perfil">ver perfil</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <h3 class="nome"><?php the_title(); ?></h3>
+                          <div class="cargo"><?php echo types_render_field( "cargo", array( ) ); ?></div>
+                        </a>
+                        <div class="redes-perfil">
+                          <?php $email =  types_render_field("email", array("raw"=>"true","separator"=>";")); ?>
+                          <?php if ( !empty( $email ) ) : ?>
+                                  <a href="mailto:<?php echo $email; ?>?subject=Contato%20pelo%20Web%20Site%20da%20RBGV" target="_blank" data-ix="btn-redes" class="w-inline-block link link-mail"%5Bemail%5D%5Bexists%5D%3Dyes">
+                                    <img src="<?php echo PW_THEME_URL ?>assets/images/icon-mail.svg" class="icon-mail">
+                                    <img src="<?php echo PW_THEME_URL ?>assets/images/bg-icon-hover.svg" data-ix="hover-invisivel" class="overlay">
+                                  </a>
+                          <?php endif; ?>
+                          <?php $linkedin =  types_render_field("linkedin", array("raw"=>"true","separator"=>";")); ?>
+                          <?php if ( !empty( $linkedin ) ) : ?>
+                                  <a href="<?php echo $linkedin; ?>" target="_blank" data-ix="btn-redes" class="w-inline-block link link-linkedin"%5Blinked-in-link%5D%5Bexists%5D%3Dyes">
+                                    <img src="<?php echo PW_THEME_URL ?>assets/images/icon-linkedin.svg" class="icon-mail">
+                                    <img src="<?php echo PW_THEME_URL ?>assets/images/icon-linkedin-hover.svg" data-ix="hover-invisivel" class="overlay">
+                                  </a>
+                          <?php endif; ?>
+                        </div>
+                      </div>
+              <?php endwhile; ?>
+        <?php endif; ?>
         </div>
         <div class="w-slider-arrow-left seta-esq">
           <div class="w-icon-slider-left setas"></div>
